@@ -19,5 +19,3 @@ def signin_page(request):
 def forgot_pwd_page(request):
     return render(request, "forgot_pwd_page.html")
 
-def login_page(request):
-    return render(request, "login_page.html")
