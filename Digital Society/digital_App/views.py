@@ -19,3 +19,13 @@ def signin_page(request):
 def forgot_pwd_page(request):
     return render(request, "forgot_pwd_page.html")
 
+
+# Signup Logic
+def signup(request):
+    print(request.POST)
+    passwore = request.POST['password']
+
+    if passwore == request.POST['conform_password']:
+        pass
+
+    pass
