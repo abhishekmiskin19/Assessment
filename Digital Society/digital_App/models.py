@@ -3,6 +3,7 @@ import datetime
 
 # Create your models here.
 
+
 gender_choices = (
     ('m', 'Male'),
     ('f', 'Female'),
@@ -15,6 +16,9 @@ class User(models.Model):
     class Meta:
         db_table = "User"
 
+    def __str__(self) -> str:
+        return self.Email
+
 class Member(models.Model):
     User = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -25,6 +29,8 @@ class Member(models.Model):
     class Meta:
         db_table = "Member"
 
+    def __str__(self) -> str:
+        return self.User.Email
 
 class Chairman(models.Model):
     User = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -24,10 +24,10 @@ def forgot_pwd_page(request):
 # Signup Logic
 def signup(request):
     print(request.POST)
-    passwore = request.POST['password']
+    password = request.POST['password']
 
-    if passwore == request.POST['conform_password']:
-        user = User.objects.create(Email = request.POST['email'], Passwore = passwore)
+    if password == request.POST['conform_password']:
+        user = User.objects.create(Email = request.POST['email'], Password = password)
         Member.objects.create(User = user)
         print("Signup successfully...")
 
@@ -45,3 +45,5 @@ def signin(request):
     if user.Password == request.POST['password']:
         request.session['email'] = user.Email
         return redirect(home)
+
+    pass
