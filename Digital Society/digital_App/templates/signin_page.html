@@ -24,7 +24,8 @@
                             <h4 class="text-dark-50 text-center pb-0 fw-bold">Sign In</h4>
                         </div>
 
-                        <form action="#">
+                        <form action="{% url 'signin' %}" method="post">
+                            {% csrf_token %}
 
                             <div class="mb-3">
                                 <label for="emailaddress" class="form-label">Email address</label>

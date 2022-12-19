@@ -3,7 +3,6 @@ import datetime
 
 # Create your models here.
 
-
 gender_choices = (
     ('m', 'Male'),
     ('f', 'Female'),

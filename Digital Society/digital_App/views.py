@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from .models import *
 from django.http import HttpResponse
 
 
@@ -26,6 +27,21 @@ def signup(request):
     passwore = request.POST['password']
 
     if passwore == request.POST['conform_password']:
-        pass
+        user = User.objects.create(Email = request.POST['email'], Passwore = passwore)
+        Member.objects.create(User = user)
+        print("Signup successfully...")
 
-    pass
+    else:
+        print('both password should be same...')
+        return redirect(signup_page)
+
+    return redirect(signin_page)
+
+# Signin Logic
+
+def signin(request):
+    print(request.POST)
+    user = User.objects.get(Email = request.POST['email'])
+    if user.Password == request.POST['password']:
+        request.session['email'] = user.Email
+        return redirect(home)
