@@ -40,10 +40,25 @@ def signup(request):
 # Signin Logic
 
 def signin(request):
-    print(request.POST)
-    user = User.objects.get(Email = request.POST['email'])
-    if user.Password == request.POST['password']:
-        request.session['email'] = user.Email
-        return redirect(home)
+    # print(request.POST)
+    try:
+        user = User.objects.get(Email = request.POST['email'])
+        if user.Password == request.POST['password']:
+            request.session['email'] = user.Email
+            return redirect(home)
+        else:
+            return render(request, 'signin_page', {'error': "Password does not match"})
 
-    pass
+    except User.DoesNotExist as err:
+        return render(request, 'signin_page', {'error': "Password does not match"})
+
+
+# Logout Logic
+def logout(request):
+    print(request.POST)
+    if 'email' in request.session:
+        del request.session['email']
+        return redirect(signin_page)
+    return redirect(home)
+
+
