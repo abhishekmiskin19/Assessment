@@ -20,6 +20,8 @@ def signin_page(request):
 def forgot_pwd_page(request):
     return render(request, "forgot_pwd_page.html")
 
+def profile_page(request):
+    return render(request, 'profile_page.html')
 
 # Signup Logic
 def signup(request):
