@@ -13,6 +13,6 @@ urlpatterns = [
     path("signup/", signup, name='signup'),
     path("signin/", signin, name='signin'),
     path("logout/", logout, name='logout'),
+    path("profile_update/", profile_update, name='profile_update'),
 
-    
 ]

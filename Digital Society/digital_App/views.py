@@ -63,4 +63,12 @@ def logout(request):
         return redirect(signin_page)
     return redirect(home)
 
+# Profile Page Update Logic
+
+def profile_update(request):
+    print(request.POST)
+    user = User.objects.get(Email = request.session['email'])
+    
+    pass
+
 

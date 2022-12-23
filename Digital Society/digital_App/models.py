@@ -25,6 +25,7 @@ class Member(models.Model):
     FullName = models.CharField(max_length=15, default=str(), blank=True)
     Mobile = models.CharField(max_length=10, default=str(), blank=True)
     Gender = models.CharField(max_length=6, choices=gender_choices, default=str(), blank=True)
+    Birthday = models.DateField(default="22-11-2021")
     
     class Meta:
         db_table = "Member"
@@ -43,6 +44,8 @@ class Chairman(models.Model):
     class Meta:
         db_table = "Chairman"
 
+    def __str__(self) -> str:
+        return self.User.Email
 
 class Event(models.Model):
     
@@ -51,6 +54,9 @@ class Event(models.Model):
 
     class Meta:
         db_table = "Event"
+
+    def __str__(self) -> str:
+        return self.User.Email
 
 class Notice(models.Model):
     AddNotices = models.TextField(max_length=150, default=str(), blank=True)
@@ -76,6 +82,8 @@ class Visitor(models.Model):
     class Meta:
         db_table = "Visitor"
 
+    def __str__(self) -> str:
+        return self.User.Email
 
 class Watchman(models.Model):
     User = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -85,6 +93,9 @@ class Watchman(models.Model):
 
     class Meta:
         db_table = "Watchman"
+
+    def __str__(self) -> str:
+        return self.User.Email
 
 
 class Transaction(models.Model):

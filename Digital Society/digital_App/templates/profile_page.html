@@ -515,6 +515,74 @@
 </div>
 <!-- ========== Left Sidebar End ========== -->
 
+<!-- ========= Start Form ========= -->
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <form class="was-validated" method="post" action="">
+                {% csrf_token %}
+                <div class="mb-3 mt-3">
+                    <label for="uname" class="form-label">FirstName:</label>
+                    <input type="text" class="form-control" id="uname" name="first_name"
+                        value="" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label for="uname" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="uname" name="last_name"
+                        value="" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label for="uname" class="form-label">Mobile:</label>
+                    <input type="text" class="form-control" id="uname" placeholder="Enter username"
+                        name="mobile" value="" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label for="uname" class="form-label">BirthDate:</label>
+                    <input type="date" class="form-control" id="uname" placeholder="Enter username"
+                        name="birthdate" value="" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group form-primary pt-3">
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="gender" id="gender-2" value="" >
+                                
+                            </label>
+                        </div>
+                        
+                        <span class="messages"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="#" class="form-label">Address</label>
+                    <textarea class="form-control" rows="5" id="#" name="address" required
+                        placeholder="Enter Address"></textarea>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- ========= End Form ========= -->
+
 
 
 
