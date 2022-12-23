@@ -5,6 +5,11 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+default_data = {
+
+}
+
+
 def index1(request):
     return HttpResponse("<h1>Hello World</h1>")
     
@@ -64,11 +69,34 @@ def logout(request):
     return redirect(home)
 
 # Profile Page Update Logic
-
 def profile_update(request):
     print(request.POST)
     user = User.objects.get(Email = request.session['email'])
-    
-    pass
+    member = Member.objects.get(User = user)
+
+    member.FullName = ' '.join(request.POST['first_name'],request.POST['last_name'],)
+    member.Mobile = request.POST['mobile']
+    member.Birthday = request.POST['birthdate']
+    member.Gender = request.POST['gender']
+
+    member.save()
+
+    return redirect(profile_page)
+
+
+# Load Profile data Logic
+def profile_data(request):
+    print(request.POST)
+    user = User.objects.get(Email = request.session['email'])
+    member = Member.objects.get(User = user)
+
+    member.first_name = member.FullName.split()[0]
+    member.last_name = member.FullName.split()[1]
+
+    member.birthday = member.Birthday.strftime("%Y-%m-%d") 
+
+    default_data["member_data"]= member
+
+
 
 
