@@ -25,7 +25,7 @@ class Member(models.Model):
     FullName = models.CharField(max_length=15, default=str(), blank=True)
     Mobile = models.CharField(max_length=10, default=str(), blank=True)
     Gender = models.CharField(max_length=6, choices=gender_choices, default=str(), blank=True)
-    Birthday = models.DateField(default="22-11-2021")
+    Birthday = models.DateField(default="2022-11-20")
     
     class Meta:
         db_table = "Member"
