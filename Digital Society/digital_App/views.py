@@ -26,6 +26,9 @@ def forgot_pwd_page(request):
     return render(request, "forgot_pwd_page.html")
 
 def profile_page(request):
+    if 'email' in request.session:
+        profile_data(request)
+        return render(request, 'profile_page.html', default_data)
     return render(request, 'profile_page.html')
 
 # Signup Logic
@@ -94,6 +97,7 @@ def profile_data(request):
     member.last_name = member.FullName.split()[1]
 
     member.birthday = member.Birthday.strftime("%Y-%m-%d") 
+    member.mobile = member.Mobile
 
     default_data["member_data"]= member
 

@@ -14,6 +14,6 @@ urlpatterns = [
     path("signin/", signin, name='signin'),
     path("logout/", logout, name='logout'),
     path("profile_update/", profile_update, name='profile_update'),
-    # path("profile_update/", profile_update, name='profile_update'),
+
 
 ]
