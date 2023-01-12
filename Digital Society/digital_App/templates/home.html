@@ -336,15 +336,14 @@
                                 class="rounded-circle">
                         </span>
                         <span>
-                            <span class="account-user-name">Dominic Keller</span>
-                            <span class="account-position">Founder</span>
+                            <span class="account-user-name">{{member_data.FullName}}</span>
                         </span>
                     </a>
                     <div
                         class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
                         <!-- item-->
                         <div class=" dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">Welcome !</h6>
+                            <h6 class="text-overflow m-0">Welcome ! </h6>
                         </div>
 
                         <!-- item-->
@@ -462,7 +461,7 @@
                 <a href="pages-profile.html">
                     <img src="{% static 'assets/images/users/avatar-1.jpg' %}" alt="user-image" height="42"
                         class="rounded-circle shadow-sm">
-                    <span class="leftbar-user-name">Dominic Keller</span>
+                    <span class="leftbar-user-name">{{member_data.first_name}} {{member_data.last_name}}</span>
                 </a>
             </div>
 
@@ -472,7 +471,7 @@
                 <li class="side-nav-title side-nav-item">Digital Society</li>
 
                 <li class="side-nav-item">
-                    <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false"
+                    <a data-bs-toggle="collapse" href="{% url 'home' %}" aria-expanded="false"
                         aria-controls="sidebarDashboards" class="side-nav-link">
                         <i class="uil-home-alt"></i>
                         <span> Dashboards </span>
@@ -482,39 +481,40 @@
                 <!-- <li class="side-nav-title side-nav-item">Apps</li> -->
 
                 <li class="side-nav-item">
-                    <a href="apps-calendar.html" class="side-nav-link">
+                    <a href="{% url 'profile_page' %}" class="side-nav-link">
                         <i class="uil-calender"></i>
                         <span> My Profile </span>
                     </a>
                 </li>
 
                 <li class="side-nav-item">
-                    <a href="apps-chat.html" class="side-nav-link">
+                    <a href="{% url 'society_members' %}" class="side-nav-link">
                         <i class="uil-comments-alt"></i>
                         <span> Society Members </span>
                     </a>
                 </li>
 
                 <li class="side-nav-item">
-                    <a href="apps-chat.html" class="side-nav-link">
+                    <a href="{% url 'society_watchman' %}" class="side-nav-link">
                         <i class="uil-comments-alt"></i>
                         <span> Society Watchman </span>
                     </a>
                 </li>
 
                 <li class="side-nav-item">
-                    <a href="apps-chat.html" class="side-nav-link">
+                    <a href="{% url 'notice_page' %}" class="side-nav-link">
                         <i class="uil-comments-alt"></i>
                         <span> Notice </span>
                     </a>
                 </li>
 
                 <li class="side-nav-item">
-                    <a href="apps-chat.html" class="side-nav-link">
+                    <a href="{% url 'event_page' %}" class="side-nav-link">
                         <i class="uil-comments-alt"></i>
                         <span> Event </span>
                     </a>
                 </li>
+                
             </ul>
         </div>
     </div>

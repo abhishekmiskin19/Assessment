@@ -21,32 +21,20 @@
                             <h4 class="text-dark-50 text-center mt-0 fw-bold">Free Sign Up</h4>
                         </div>
 
-                        <form action="{% url 'signup' %}" method="post">
+                        <form action="{% url 'otp_send' %}" method="post">
                             {% csrf_token %}
 
-                            <div class="row">
-                                <div class="col-4">
-                                    <label> Select Role : </label><br>
-                                </div>
-                                <div class="col-4">
-                                    <input type="radio" name="role_type" value="student" required> Chairmans
-                                </div>
-                                <div class="col-4">
-                                    <input type="radio" name="role_type" value="teacher" required> Members
-                                </div>
-                            </div><br>
-
-                            <div class="mb-3">
-                                <label for="emailaddress" class="form-label">Email address</label>
-                                <input class="form-control" type="email" id="emailaddress"
-                                    placeholder="Enter your email" name="email" required>
+                            <div class="form-group">
+                                <label> OTP <span class="login-danger">*</span></label>
+                                <input class="form-control pass-input" type="password" name="otp" required>
+                                <span class="profile-views toggle-password"></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
+                                <label for="password" class="form-label">New Password</label>
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password" class="form-control"
-                                        placeholder="Enter your password" name="password" required>
+                                        placeholder="Enter your password" name="new_password" required>
                                     <div class="input-group-text" data-password="false">
                                         <span class="password-eye"></span>
                                     </div>
@@ -54,10 +42,10 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="password" class="form-label">Conform Password</label>
+                                <label for="password" class="form-label">Conform New Password</label>
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password" class="form-control"
-                                        placeholder="Enter your password" name="conform_password" required>
+                                        placeholder="Enter your password" name="confirm_password" required>
                                     <div class="input-group-text" data-password="false">
                                         <span class="password-eye"></span>
                                     </div>
@@ -72,7 +60,7 @@
                                     </div> -->
 
                             <div class="mb-3 text-center">
-                                <button class="btn btn-primary" type="submit"> Sign Up </button>
+                                <button class="btn btn-primary" type="submit"> Submit </button>
                             </div>
 
                         </form>

@@ -36,11 +36,6 @@ class Member(models.Model):
 class Chairman(models.Model):
     User = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    FullName = models.CharField(max_length=15, default=str(), blank=True)
-    Mobile = models.CharField(max_length=10, default=str(), blank=True)
-    Gender = models.CharField(max_length=6, choices=gender_choices, default=str(), blank=True)
-    
-
     class Meta:
         db_table = "Chairman"
 
@@ -56,7 +51,7 @@ class Event(models.Model):
         db_table = "Event"
 
     def __str__(self) -> str:
-        return self.User.Email
+        return self.AddEvent
 
 class Notice(models.Model):
     AddNotices = models.TextField(max_length=150, default=str(), blank=True)
@@ -65,6 +60,8 @@ class Notice(models.Model):
     class Meta:
         db_table = "Notice"
 
+    def __str__(self) -> str:
+        return self.AddNotices
 
 class Notice_view(models.Model):
     Notices = models.ForeignKey(Notice, on_delete=models.CASCADE)
@@ -86,7 +83,7 @@ class Visitor(models.Model):
         return self.User.Email
 
 class Watchman(models.Model):
-    User = models.ForeignKey(User, on_delete=models.CASCADE)
+    
     FullName = models.CharField(max_length=(20), default=str(), blank=True)
     Mobile = models.CharField(max_length=10, default=str(), blank=True)
     
@@ -95,7 +92,7 @@ class Watchman(models.Model):
         db_table = "Watchman"
 
     def __str__(self) -> str:
-        return self.User.Email
+        return self.FullName
 
 
 class Transaction(models.Model):
