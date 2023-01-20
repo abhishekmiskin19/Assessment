@@ -19,28 +19,54 @@ class User(models.Model):
     def __str__(self) -> str:
         return self.Email
 
-class Member(models.Model):
+Select_Role = (
+    ('M', 'member'),
+    ('C', 'chairman'),
+)
+# Create your models here.
+class Role(models.Model):
+    # Role_Type = models.CharField(max_length=8,default=str())
+    Role_Type = models.CharField(max_length=5, choices=Select_Role, default=str(), blank=True)
+     
+    class Meta:
+        db_table="role"
+
+    def __str__(self) -> str:
+        return self.Role_Type
+
+
+class Visitor(models.Model):
     User = models.ForeignKey(User, on_delete=models.CASCADE)
 
     FullName = models.CharField(max_length=15, default=str(), blank=True)
     Mobile = models.CharField(max_length=10, default=str(), blank=True)
-    Gender = models.CharField(max_length=6, choices=gender_choices, default=str(), blank=True)
     Birthday = models.DateField(default="2022-11-20")
     
     class Meta:
-        db_table = "Member"
+        db_table = "Visitor"
 
     def __str__(self) -> str:
         return self.User.Email
 
+class Member(models.Model):
+    Visitor = models.ForeignKey(Visitor, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "Member"
+
+    def __str__(self) -> str:
+        return self.Visitor.User.Email
+        
 class Chairman(models.Model):
-    User = models.ForeignKey(User, on_delete=models.CASCADE)
+    Visitor = models.ForeignKey(Visitor, on_delete=models.CASCADE)
+    Type = models.CharField(max_length=10, default=str(), blank=True)
 
     class Meta:
         db_table = "Chairman"
 
     def __str__(self) -> str:
-        return self.User.Email
+        return self.Visitor.User.Email
+
 
 class Event(models.Model):
     
@@ -71,16 +97,6 @@ class Notice_view(models.Model):
         db_table = "Notice_view"
 
 
-class Visitor(models.Model):
-    User = models.ForeignKey(User, on_delete=models.CASCADE)
-    FullName = models.CharField(max_length=(20), default=str(), blank=True)
-    Mobile = models.CharField(max_length=10, default=str(), blank=True)
-    
-    class Meta:
-        db_table = "Visitor"
-
-    def __str__(self) -> str:
-        return self.User.Email
 
 class Watchman(models.Model):
     

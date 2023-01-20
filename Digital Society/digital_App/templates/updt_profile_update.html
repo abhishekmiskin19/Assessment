@@ -525,7 +525,7 @@
                 <div class="mb-3 mt-3">
                     <label for="uname" class="form-label">FirstName:</label>
                     <input type="text" class="form-control" id="uname" name="first_name"
-                        value="{{member_data.first_name}}" required>
+                        value="" required>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
@@ -533,7 +533,7 @@
                 <div class="mb-3 mt-3">
                     <label for="uname" class="form-label">Last Name:</label>
                     <input type="text" class="form-control" id="uname" name="last_name"
-                        value="{{member_data.last_name}}" required>
+                        value="" required>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
@@ -541,11 +541,10 @@
                 <div class="mb-3 mt-3">
                     <label for="uname" class="form-label">Mobile:</label>
                     <input type="text" class="form-control" id="uname" placeholder="Enter username"
-                        name="mobile" value="{{member_data.mobile}}" required>
+                        name="mobile" value="" required>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
-                
                 <!-- <div class="form-group form-primary pt-3">
                     {% for gc in gender_choice_options %}
                     <div class="form-check form-check-inline">
@@ -566,14 +565,11 @@
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-
-                <button type="submit" class="btn btn-danger Left"><a style="color: white;" href="{% url 'delete_account' %}">Delete Account</a></button>
                 <!-- <button type="submit" class="btn btn-primary"></button> -->
             </form>
         </div>
     </div>
 </div>
-
 <!-- ========= End Form ========= -->
 
 

@@ -77,7 +77,7 @@ WSGI_APPLICATION = "Digital_Society.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "digital_society.db",
+        "NAME": BASE_DIR / "digital_society_db.db",
     }
 }
 

@@ -532,17 +532,15 @@
                                                 <tr>
                                                     <th>FullName</th>
                                                     <th>Mobile</th>
-                                                    <th>Gender</th>
                                                     <th>Birthday</th>
                                                 </tr>
                                             </thead>
 
-                                            {% for m_data in member %}
+                                            {% for m_data in visitor %}
                                             <tbody>
                                                 <tr>
                                                     <td>{{m_data.FullName}}</td>
                                                     <td>{{m_data.Mobile}}</td>
-                                                    <td>{{m_data.Gender}}</td>
                                                     <td>{{m_data.Birthday}}</td>
                                                 </tr>
                                             </tbody>
